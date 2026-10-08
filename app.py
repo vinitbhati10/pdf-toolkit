@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify, send_file
 import os
 import zipfile
+import time
 from utils.merge import merge_pdfs
 from utils.split import split_pdf
 from utils.compress import compress_pdf
