@@ -1,0 +1,636 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+}
+
+
+/* Header */
+
+header {
+    height: 70px;
+    background: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 8%;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+}
+
+
+/* Hero */
+
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: #666;
+    font-size: 18px;
+}
+
+
+/* Upload Box */
+
+.upload-box {
+    width: 500px;
+    max-width: 90%;
+
+    margin: 40px auto;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 15px;
+
+    border: 2px dashed #bbb;
+}
+
+.upload-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.upload-box h2 {
+    margin-bottom: 10px;
+}
+
+.upload-box p {
+    margin-bottom: 20px;
+}
+
+
+/* Hide actual file input */
+
+#pdfFile {
+    display: none;
+}
+
+
+/* Upload button */
+
+.upload-button {
+    display: inline-block;
+
+    background: #222;
+    color: white;
+
+    padding: 13px 25px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+}
+
+.upload-button:hover {
+    background: #444;
+}
+
+#fileName {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+/* Tools */
+
+.tools {
+    padding: 40px 8%;
+}
+
+.tools > h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 35px;
+}
+
+
+/* Tools Grid */
+
+.tools-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* Tool Card */
+
+.tool-card {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+
+    transition: 0.3s;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+}
+
+.tool-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.tool-card h3 {
+    margin-bottom: 10px;
+}
+
+.tool-card p {
+    color: #666;
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+}
+
+.tool-card button {
+    border: none;
+
+    background: #222;
+    color: white;
+
+    padding: 10px 20px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+}
+
+.tool-card button:hover {
+    background: #444;
+}
+
+
+/* Footer */
+
+footer {
+    margin-top: 60px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    background: #222;
+
+    color: white;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+}
+
+.download-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 18px;
+
+    background: #222;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 7px;
+
+    cursor: pointer;
+}
+
+.download-button:hover {
+    background: #444;
+}
+
+.tool-card input[type="number"] {
+    width: 100%;
+
+    padding: 10px;
+
+    margin: 8px 0 15px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+}
+
+
+.tool-card label {
+    display: block;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+}
+
+
+#splitStatus {
+    margin-top: 15px;
+}
+
+
+#splitDownloadLink {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 10px 18px;
+
+    background: #222;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+}
+
+/* =================================
+   Improved Upload Area
+================================= */
+
+.upload-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+.upload-box {
+    width: 100%;
+    max-width: 850px;
+    min-height: 260px;
+
+    border: 2px dashed #aaa;
+    border-radius: 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px 25px;
+
+    background: #fafafa;
+
+    transition: all 0.25s ease;
+}
+
+.upload-box:hover {
+    border-color: #333;
+    background: #f5f5f5;
+}
+
+.upload-box.drag-over {
+    border-color: #111;
+    background: #eeeeee;
+    transform: scale(1.01);
+}
+
+.upload-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.upload-box h2 {
+    margin: 5px 0 8px;
+}
+
+.upload-box p {
+    margin: 5px 0 15px;
+}
+
+.choose-file-button {
+    border: none;
+    background: #111;
+    color: white;
+
+    padding: 12px 25px;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.choose-file-button:hover {
+    transform: translateY(-2px);
+}
+
+#fileName {
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.upload-info {
+    font-size: 12px;
+    color: #777;
+}
+
+/* =================================
+   Responsive Layout
+================================= */
+
+/* Tablet */
+@media (max-width: 900px) {
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .upload-box {
+        max-width: 700px;
+    }
+
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .tool-card {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .upload-section {
+        padding: 20px 12px;
+    }
+
+    .upload-box {
+        min-height: 220px;
+        padding: 30px 15px;
+        border-radius: 14px;
+    }
+
+    .upload-icon {
+        font-size: 42px;
+    }
+
+    .upload-box h2 {
+        font-size: 22px;
+    }
+
+    .upload-box p {
+        font-size: 14px;
+    }
+
+    .choose-file-button {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .tool-card input,
+    .tool-card select,
+    .tool-card button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+
+/* Very small phones */
+@media (max-width: 400px) {
+
+    .upload-box {
+        padding: 25px 12px;
+    }
+
+    .tool-card {
+        padding: 16px;
+    }
+
+}
+
+/* =================================
+   Global UI Polish
+================================= */
+
+.tool-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* All tool buttons */
+
+.tool-card button {
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+
+    padding: 11px 16px;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.tool-card button:hover {
+    background: #333;
+    transform: translateY(-1px);
+}
+
+.tool-card button:active {
+    transform: translateY(0);
+}
+
+
+/* All inputs */
+
+.tool-card input[type="text"],
+.tool-card input[type="password"],
+.tool-card input[type="number"],
+.tool-card input[type="file"],
+.tool-card select {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 11px 12px;
+
+    margin: 8px 0 14px;
+
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+
+    background: #fff;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.tool-card input:focus,
+.tool-card select:focus {
+    border-color: #555;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Download buttons */
+
+.tool-card a[id$="DownloadLink"] {
+    display: inline-block;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 12px;
+
+    padding: 11px 16px;
+
+    border-radius: 8px;
+
+    background: #f1f1f1;
+    color: #111;
+
+    text-align: center;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+}
+
+.tool-card a[id$="DownloadLink"]:hover {
+    background: #e2e2e2;
+}
+
+
+/* Status messages */
+
+.tool-card p[id$="Status"] {
+    min-height: 20px;
+
+    margin: 10px 0;
+
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* =================================
+   Loading Indicator
+================================= */
+
+.tool-loading {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-top: 10px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.loading-spinner {
+    width: 15px;
+    height: 15px;
+
+    border: 2px solid #ddd;
+    border-top-color: #111;
+
+    border-radius: 50%;
+
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

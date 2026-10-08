@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PDF Toolkit test 123</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">PDF Toolkit</div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Tools</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+
+
+    <!-- Main Section -->
+    <main>
+
+        <section class="hero">
+
+            <h1>PDF Toolkit test 123</h1>
+
+            <p>
+                Easily manage, edit and convert your PDF files.
+            </p>
+
+            <!-- Upload Box -->
+            <div class="upload-box">
+
+    <div class="upload-icon">
+        📄
+    </div>
+
+    <h2>Upload Your PDF</h2>
+
+    <p>
+        Select a PDF file to get started
+    </p>
+
+  <div class="upload-section">
+
+    <div class="upload-box" id="uploadBox">
+
+        <div class="upload-icon">
+            📄
+        </div>
+
+        <h2>Upload your PDF</h2>
+
+        <p>
+            Drag & drop your PDF here or click to browse
+        </p>
+
+        <input
+            type="file"
+            id="pdfFile"
+            accept=".pdf,application/pdf"
+            multiple
+            hidden
+        >
+
+        <button
+            type="button"
+            id="chooseFileButton"
+            class="choose-file-button"
+        >
+            Choose PDF
+        </button>
+
+        <p id="fileName"></p>
+
+        <p class="upload-info">
+            Maximum supported file size depends on your server.
+        </p>
+
+    </div>
+
+</div>
+  
+
+</div>
+
+        </section>
+
+
+        <!-- Tools -->
+        <section class="tools">
+
+            <h2>PDF Tools</h2>
+
+            <div class="tools-grid">
+
+                <div class="tool-card">
+                    <div class="tool-icon">🔗</div>
+                    <h3>Merge PDF</h3>
+                    <p>Combine multiple PDF files into one.</p>
+                   <button id="mergeButton" type="button">
+    Merge PDFs
+</button>
+ <p id="mergeStatus"></p>
+
+    <a id="downloadLink"
+       href="#"
+        class="download-button"
+       style="display: none;">
+        Download Merged PDF
+    </a>
+                </div>
+
+
+                <div class="tool-card">
+
+    <div class="tool-icon">✂️</div>
+
+    <h3>Split PDF</h3>
+
+    <p>
+        Extract a range of pages from a PDF.
+    </p>
+
+    <label for="splitStart">
+        Start Page
+    </label>
+
+    <input
+        type="number"
+        id="splitStart"
+        min="1"
+        placeholder="e.g. 1"
+    >
+
+    <label for="splitEnd">
+        End Page
+    </label>
+
+    <input
+        type="number"
+        id="splitEnd"
+        min="1"
+        placeholder="e.g. 5"
+    >
+
+    <button id="splitButton" type="button">
+        Split PDF
+    </button>
+
+    <p id="splitStatus"></p>
+
+    <a
+        id="splitDownloadLink"
+        href="#"
+        style="display: none;"
+    >
+        Download Split PDF
+    </a>
+
+</div>
+
+
+                <div class="tool-card">
+
+    <div class="tool-icon">📦</div>
+
+    <h3>Compress PDF</h3>
+
+    <p>
+        Reduce the size of your PDF file.
+    </p>
+
+    <button id="compressButton" type="button">
+        Compress PDF
+    </button>
+
+    <p id="compressStatus"></p>
+
+    <a
+        id="compressDownloadLink"
+        href="#"
+        style="display: none;"
+    >
+        Download Compressed PDF
+    </a>
+
+</div>
+
+
+                <div class="tool-card">
+
+    <div class="tool-icon">🔄</div>
+
+    <h3>Rotate PDF</h3>
+
+    <p>
+        Rotate your PDF pages.
+    </p>
+
+    <label for="rotateAngle">
+        Rotation Angle
+    </label>
+
+    <select id="rotateAngle">
+
+        <option value="90">90°</option>
+
+        <option value="180">180°</option>
+
+        <option value="270">270°</option>
+
+    </select>
+
+    <button id="rotateButton" type="button">
+        Rotate PDF
+    </button>
+
+    <p id="rotateStatus"></p>
+
+    <a
+        id="rotateDownloadLink"
+        href="#"
+        style="display: none;"
+    >
+        Download Rotated PDF
+    </a>
+
+</div>
+
+
+              <div class="tool-card">
+
+    <div class="tool-icon">🖼️</div>
+
+    <h3>PDF → Images</h3>
+
+    <p>
+        Convert each PDF page into an image.
+    </p>
+
+    <button id="pdfToImagesButton" type="button">
+        Convert to Images
+    </button>
+
+    <p id="pdfToImagesStatus"></p>
+
+    <a
+        id="pdfToImagesDownloadLink"
+        href="#"
+        style="display: none;"
+    >
+        Download All Image
+    </a>
+
+</div>
+
+
+               <div class="tool-card">
+
+    <div class="tool-icon">🗑️</div>
+
+    <h3>Delete Pages</h3>
+
+    <p>
+        Remove unwanted pages from your PDF.
+    </p>
+
+    <input
+        type="file"
+        id="deletePdfInput"
+        accept=".pdf"
+    >
+
+    <input
+        type="text"
+        id="deletePagesInput"
+        placeholder="Pages to delete (e.g. 2,5,7)"
+    >
+
+    <button
+        id="deletePagesButton"
+        type="button"
+    >
+        Delete Pages
+    </button>
+
+    <p id="deletePagesStatus"></p>
+
+    <a
+        id="deletePagesDownloadLink"
+        href="#"
+        style="display: none;"
+    >
+        Download PDF
+    </a>
+
+</div>
+
+
+                <div class="tool-card">
+
+    <div class="tool-icon">↔️</div>
+
+    <h3>Reorder Pages</h3>
+
+    <p>
+        Change the order of PDF pages.
+    </p>
+
+    <input
+        type="file"
+        id="reorderPdfInput"
+        accept=".pdf"
+    >
+
+    <input
+        type="text"
+        id="pageOrderInput"
+        placeholder="New order (e.g. 3,1,2,4)"
+    >
+
+    <button
+        id="reorderPagesButton"
+        type="button"
+    >
+        Reorder Pages
+    </button>
+
+    <p id="reorderPagesStatus"></p>
+
+    <a
+        id="reorderPagesDownloadLink"
+        href="#"
+        style="display: none;"
+    >
+        Download PDF
+    </a>
+
+</div>
+
+
+                
+
+
+                <div class="tool-card">
+
+    <div class="tool-icon">📄</div>
+
+    <h3>Images → PDF</h3>
+
+    <p>
+        Combine multiple images into one PDF.
+    </p>
+
+    <input
+        type="file"
+        id="imagesToPdfInput"
+        accept=".jpg,.jpeg,.png,.webp"
+        multiple
+    >
+
+    <p id="imagesToPdfFileName"></p>
+
+    <button id="imagesToPdfButton" type="button">
+        Convert to PDF
+    </button>
+
+    <p id="imagesToPdfStatus"></p>
+
+    <a
+        id="imagesToPdfDownloadLink"
+        href="#"
+        style="display: none;"
+    >
+        Download PDF
+    </a>
+
+</div>
+
+
+               <div class="tool-card">
+
+    <div class="tool-icon">💧</div>
+
+    <h3>Watermark PDF</h3>
+
+    <p>
+        Add a text watermark to your PDF.
+    </p>
+
+    <input
+        type="text"
+        id="watermarkText"
+        placeholder="Enter watermark text"
+    >
+
+    <button id="watermarkButton" type="button">
+        Add Watermark
+    </button>
+
+    <p id="watermarkStatus"></p>
+
+    <a
+        id="watermarkDownloadLink"
+        href="#"
+        style="display: none;"
+    >
+        Download Watermarked PDF
+    </a>
+
+</div>
+
+
+                <div class="tool-card">
+
+    <div class="tool-icon">🔐</div>
+
+    <h3>Protect PDF</h3>
+
+    <p>
+        Protect your PDF with a password.
+    </p>
+
+    <input
+        type="password"
+        id="protectPassword"
+        placeholder="Enter password"
+    >
+
+    <button id="protectButton" type="button">
+        Protect PDF
+    </button>
+
+    <p id="protectStatus"></p>
+
+    <a
+        id="protectDownloadLink"
+        href="#"
+        style="display: none;"
+    >
+        Download Protected PDF
+    </a>
+
+</div>
+
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 PDF Toolkit | All Rights Reserved</p>
+    </footer>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}?v=11"></script>
+
+</body>
+</html>
