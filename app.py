@@ -13,6 +13,7 @@ from pypdf import PdfReader
 
 
 app = Flask(__name__)
+app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024
 
 UPLOAD_FOLDER = "uploads"
 OUTPUT_FOLDER = "outputs"
